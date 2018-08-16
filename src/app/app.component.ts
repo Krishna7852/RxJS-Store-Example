@@ -11,7 +11,6 @@ import { getError, getLoginPending, getUser, State } from './auth/store/reducer/
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  public title = 'My World';
   public error$ = this._store.select(getError);
   public pending$ = this._store.select(getLoginPending);
   private user$: Subscription;

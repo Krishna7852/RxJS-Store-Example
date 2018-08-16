@@ -23,6 +23,7 @@ export class AuthEffects {
     .switchMap((action: Login) => {
       return this.authService.login(action.payload)
         .map((data) => {
+          this.router.navigate(['/dashboard']);
           return new LoginSuccess(data);
         })
         .catch((error) => {

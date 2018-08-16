@@ -10,29 +10,32 @@ import { AlertModule } from 'ngx-bootstrap/alert';
 
 
 import { AppComponent } from './app.component';
+import { appRoutes } from './app.routes';
 import { LoginFormComponent } from './auth/components/login-form/login-form.component';
 import { AuthService } from './auth/services/auth.service';
 import { AuthEffects } from './auth/store/effects/auth.effects';
 import { reducer } from './auth/store/reducer/auth';
 import { reducers } from './auth/store/reducer/index';
+import { DashboardComponent } from './auth/components/dashboard/dashboard.component';
 const storeInitialState = {};
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot([]),
+    RouterModule.forRoot(appRoutes),
     MatButtonModule,
     MatCardModule,
     MatInputModule,
     AlertModule.forRoot(),
     ReactiveFormsModule,
     StoreModule.forRoot(reducers),
-    EffectsModule.forRoot([AuthEffects]),
+    EffectsModule.forRoot([AuthEffects])
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
